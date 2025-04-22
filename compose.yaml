@@ -1,0 +1,6 @@
+﻿services:
+  fina.api:
+    image: fina.api
+    build:
+      context: .
+      dockerfile: Fina.Api/Dockerfile
