@@ -1,23 +1,22 @@
-using Microsoft.AspNetCore.Http.HttpResults;
+using Fina.Api;
+using Fina.Api.Common.Api;
+using Fina.Api.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
+builder.AddConfiguration();
+builder.AddDataContexts();
+builder.AddCrossOrigin();
+builder.AddDocumentation();
+builder.AddServices();
 
 var app = builder.Build();
+if(app.Environment.IsDevelopment())
+    app.ConfigureDevEnvironment();
+
+app.UseCors(ApiConfiguration.CorsPolicyName);
+app.MapEndpoints();
 
 // Configure the HTTP request pipeline.
-
 app.UseHttpsRedirection();
-
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/", () =>
-{
-    return "Hello World";
-});
 
 app.Run();

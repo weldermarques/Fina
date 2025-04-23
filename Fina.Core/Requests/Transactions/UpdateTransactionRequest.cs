@@ -12,7 +12,7 @@ public class UpdateTransactionRequest : Request
     public string Title { get; set; } = string.Empty;
 
     [Required(ErrorMessage = "Tipo inválido")]
-    public EnumTransactionType? Type { get; set; } = EnumTransactionType.Withdrawal;
+    public EnumTransactionType Type { get; set; } = EnumTransactionType.Withdrawal;
     
     [Required(ErrorMessage = "Valor inválido")]
     public decimal Ammount { get; set; }

@@ -7,9 +7,9 @@ namespace Fina.Core.Handlers;
 
 public interface ICategoryHandler
 {
-    Task<Response<Category?>> CreateAsync(CreateCategoryRequest createCategoryRequest);
-    Task<Response<Category?>> UpdateAsync(UpdateCategoryRequest updateCategoryRequest);
-    Task<Response<Category?>> DeleteAsync(DeleteCategoryRequest deleteCategoryRequest);
-    Task<Response<Category?>> GetByIdAsync(GetCategoryByIdRequest getCategoryByIdRequest);
-    Task<PagedResponse<List<Category>>> GetAllAsync(GetAllCategoriesRequest getAllCategoriesRequest);
+    Task<Response<Category?>> CreateAsync(CreateCategoryRequest request);
+    Task<Response<Category?>> UpdateAsync(UpdateCategoryRequest request);
+    Task<Response<Category?>> DeleteAsync(DeleteCategoryRequest request);
+    Task<Response<Category?>> GetByIdAsync(GetCategoryByIdRequest request);
+    Task<PagedResponse<List<Category>?>> GetAllAsync(GetAllCategoriesRequest request);
 }
